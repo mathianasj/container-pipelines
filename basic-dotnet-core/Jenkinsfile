@@ -43,8 +43,10 @@ pipeline {
 
     // Run Maven build, skipping tests
     stage('publish') {
-      dir('app') {
-        sh "dotnet publish -c Release /p:MicrosoftNETPlatformLibrary=Microsoft.NETCore.App"
+      steps {
+        dir('app') {
+          sh "dotnet publish -c Release /p:MicrosoftNETPlatformLibrary=Microsoft.NETCore.App"
+        }
       }
     }
 
